@@ -1,0 +1,50 @@
+.app-container {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+h1 {
+  color: #ded7d7;
+  margin-bottom: 20px;
+}
+h3{
+  color:black
+}
+
+.input-field {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+p{
+  color:black
+}
+
+.postal-details-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.postal-details-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin: 10px;
+  padding: 20px;
+  max-width: 300px;
+  text-align: left;
+}
+
+.qr-code-canvas {
+  margin-top: 15px;
+  border: 1px solid #ddd;
+}
