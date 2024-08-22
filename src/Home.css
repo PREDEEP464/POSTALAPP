@@ -1,0 +1,55 @@
+/* src/Home.css */
+.home-container {
+    display: flex;
+    justify-content: space-between; /* Align items on opposite sides */
+    align-items: center; /* Center items vertically */
+    padding: 20px;
+    height: 100vh; /* Full viewport height */
+    box-sizing: border-box; /* Include padding in width/height calculations */
+    background: linear-gradient(to right, #f4f4f4, #ffffff); /* Subtle gradient background */
+  }
+  
+  .content {
+    flex: 1; /* Allow content to take available space */
+    max-width: 50%; /* Limit width of content */
+    padding: 20px;
+    background: #ffffff; /* White background for content area */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  h2 {
+    font-size: 2rem; /* Larger heading font size */
+    margin-bottom: 10px;
+    color: #333; /* Dark text color for better readability */
+  }
+  
+  p {
+    font-size: 1rem; /* Standard font size for paragraphs */
+    line-height: 1.6; /* Increased line height for readability */
+    color: #555; /* Slightly lighter text color */
+  }
+  
+  .postal-logo {
+    max-width: 40%; /* Limit width of the image */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 20px; /* Space between content and image */
+    border-radius: 10px; /* Rounded corners for the image */
+  }
+  
+  @media (max-width: 768px) {
+    .home-container {
+      flex-direction: column; /* Stack content and image vertically on smaller screens */
+      align-items: center;
+    }
+  
+    .content, .postal-logo {
+      max-width: 90%; /* Adjust max-width on smaller screens */
+    }
+  
+    .postal-logo {
+      margin-left: 0; /* Remove margin on smaller screens */
+      margin-top: 20px; /* Add space above the image */
+    }
+  }
+  

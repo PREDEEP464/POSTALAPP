@@ -1,0 +1,71 @@
+/* src/Pincode.css */
+
+.pincode-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .pincode-container h1 {
+    color: #000000 !important; /* Force the color to be black */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .input-field {
+    width: 50%; /* Increase the width to make it more prominent */
+    padding: 12px 20px; /* Increase padding for better readability */
+    font-size: 18px; /* Increase font size */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .postal-details-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Center align the cards */
+  }
+  
+  .postal-details-card {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .qr-code-canvas {
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .print-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #a72828;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .print-button:hover {
+    background-color: #218838;
+  }
+  

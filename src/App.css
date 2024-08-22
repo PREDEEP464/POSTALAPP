@@ -1,50 +1,96 @@
-.app-container {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 20px;
-  max-width: 800px;
-  margin: auto;
+/* src/App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 h1 {
-  color: #ded7d7;
-  margin-bottom: 20px;
-}
-h3{
-  color:black
+  color: rgb(247, 247, 247);
 }
 
-.input-field {
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
+html, body {
   width: 100%;
-  max-width: 400px;
-  margin-bottom: 20px;
-}
-p{
-  color:black
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
 }
 
-.postal-details-container {
+.app-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%; /* Ensure the container occupies the full width */
 }
 
-.postal-details-card {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin: 10px;
+.app-header, .app-footer {
+  background-color: #ca252b;
+  color: white;
   padding: 20px;
-  max-width: 300px;
-  text-align: left;
+  text-align: center;
+  width: 100%; /* Ensure the header and footer occupy the full width */
 }
 
-.qr-code-canvas {
-  margin-top: 15px;
-  border: 1px solid #ddd;
+.app-header {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Space between header elements */
+  align-items: center; /* Center items vertically */
+  padding: 0 20px; /* Adjust padding to ensure content is aligned */
+}
+
+.nav-links {
+  display: flex;
+  justify-content: flex-end; /* Align links to the right */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffdd57;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  width: 100%; /* Ensure the main content occupies the full width */
+}
+
+.app-footer {
+  background-color: #ca252b;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+}
+.app-footer p{
+  color:rgb(255, 255, 255)
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
 }
