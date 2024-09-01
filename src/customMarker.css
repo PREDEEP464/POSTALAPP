@@ -1,0 +1,10 @@
+/* customMarker.css */
+
+.customMarkerClass {
+    height: 30px;
+    width: 40px;
+    background-image: url('src/assets/postal_logo-removebg-preview.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  

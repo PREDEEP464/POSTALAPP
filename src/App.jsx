@@ -1,8 +1,8 @@
-// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import Pincode from './Pincode';
+import MapComponent from './MapComponent';
 import './App.css';
 
 function App() {
@@ -15,14 +15,16 @@ function App() {
             <ul className="nav-links">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/pincode">Pincode</Link></li>
+              <li><Link to="/map">Map</Link></li>
             </ul>
           </nav>
         </header>
 
-        <main>
+        <main className="app-main">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/pincode" element={<Pincode />} />
+            <Route path="/map" element={<MapComponent />} />
           </Routes>
         </main>
 

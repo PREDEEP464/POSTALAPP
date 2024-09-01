@@ -5,22 +5,17 @@
   box-sizing: border-box;
 }
 
-h1 {
-  color: rgb(247, 247, 247);
-}
-
 html, body {
   width: 100%;
   height: 100%;
   font-family: Arial, sans-serif;
-  background-color: #ffffff;
+  background-color: #f4f4f4;
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  width: 100%; /* Ensure the container occupies the full width */
 }
 
 .app-header, .app-footer {
@@ -28,28 +23,19 @@ html, body {
   color: white;
   padding: 20px;
   text-align: center;
-  width: 100%; /* Ensure the header and footer occupy the full width */
 }
 
-.app-header {
-  display: flex;
-  flex-direction: column;
-}
-
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; /* Space between header elements */
-  align-items: center; /* Center items vertically */
-  padding: 0 20px; /* Adjust padding to ensure content is aligned */
+.app-main {
+  flex: 1;
+  padding: 20px;
 }
 
 .nav-links {
   display: flex;
-  justify-content: flex-end; /* Align links to the right */
+  justify-content: flex-end;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 10px 0;
 }
 
 .nav-links li {
@@ -67,21 +53,10 @@ header {
   color: #ffdd57;
 }
 
-main {
-  flex: 1;
-  padding: 20px;
-  width: 100%; /* Ensure the main content occupies the full width */
-}
-
-.app-footer {
-  background-color: #ca252b;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
+/* Ensure map only takes part of the available space */
+.map-container {
   width: 100%;
-}
-.app-footer p{
-  color:rgb(255, 255, 255)
+  height: 500px; /* Set height as needed */
 }
 
 @media (max-width: 768px) {

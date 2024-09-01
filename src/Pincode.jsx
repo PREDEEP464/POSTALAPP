@@ -16,7 +16,7 @@ function Pincode() {
       const detailsList = data[0].PostOffice;
       setPostalDetails(detailsList);
       const urls = detailsList.map(details => 
-        `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${details.Name},${details.District},${details.State},${details.Country}`)}`
+        `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`post office ${details.Name},${details.District},${details.State},${details.Country}`)}`
       );
       setQrCodeUrls(urls);
     }
