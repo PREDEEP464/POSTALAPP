@@ -1,29 +1,83 @@
-// // src/Home.jsx
-// import React from 'react';
-// import MapComponent from './MapComponent';
-// import './Home.css';
-
-// function Home() {
-//   return (
-//     <div className="home-container">
-//       <div className="content">
-//         <h2>Welcome to the Postal Service Application</h2>
-//         <p>This is the home page. We will add more content here in the future.</p>
-//         <p>The feasibility of the AI-powered Delivery Post Office Identification System is high...</p>
-//       </div>
-
-//     </div>
-//   );
-// }
-
-// export default Home;
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalculator, faEnvelopesBulk, faLocationDot, faTruckFast, faBuildingUser, faPeopleCarryBox } from '@fortawesome/free-solid-svg-icons';
 import ImageSlider from './ImageSlider';
-import './Home.css'; // Import the CSS file for styling
+import './Home.css';
 
 function Home() {
+  const [activeTab, setActiveTab] = useState('news');
+
+  const updates = {
+    news: [
+      {
+        date: '24Aug',
+        title: 'Outsourcing of Manpower for delivery of Postal Articles at Lucknow Division',
+        size: '[89 KB]',
+      },
+      {
+        date: '23Aug',
+        title: 'Online Tender for outsourcing of manpower for delivery of articles and other works at Lucknow GPO',
+        size: '[90 KB]',
+      },
+      {
+        date: '25Jul',
+        title: 'Tender for Modernization, Upgradation, Expansion of National Philatelic Museum',
+        size: '[2013 KB]',
+      },
+    ],
+    tenders: [
+      {
+        date: '24Aug',
+        title: 'Curation and Preparation of Detailed Project Report (DPR) along with estimates(BOQ) with technical specifications for Modernization, Upgradation, Expansion of National Philatelic Museum into a National Postal Museum',
+        size: '[89 KB]',
+      },
+      {
+        date: '23Aug',
+        title: 'Outsourcing of Manpower for delivery of Postal Articles at Lucknow Division',
+        size: '[90 KB]',
+      },
+      {
+        date: '25Jul',
+        title: 'Tender for Modernization, Upgradation, Expansion of National Philatelic Museum',
+        size: '[2013 KB]',
+      },
+    ],
+    notifications: [
+      {
+        date: '24Aug',
+        title: 'DOP contact centre service provider RFP',
+        size: '[89 KB]',
+      },
+      {
+        date: '23Aug',
+        title: 'Online Tender for outsourcing of manpower for delivery of articles and other works at Lucknow GPO',
+        size: '[90 KB]',
+      },
+      {
+        date: '25Jul',
+        title: 'Tender for Modernization, Upgradation, Expansion of National Philatelic Museum',
+        size: '[2013 KB]',
+      },
+    ],
+    recruitment: [
+      {
+        date: '24Aug',
+        title: 'Outsourcing of Manpower for delivery of Postal Articles at Lucknow Division',
+        size: '[89 KB]',
+      },
+      {
+        date: '23Aug',
+        title: 'Online Tender for outsourcing of manpower for delivery of articles and other works at Lucknow GPO',
+        size: '[90 KB]',
+      },
+      {
+        date: '25Jul',
+        title: 'Tender for Modernization, Upgradation, Expansion of National Philatelic Museum',
+        size: '[2013 KB]',
+      },
+    ],
+  };
+
   return (
     <div className="home-container">
       <div className="sidebar">
@@ -70,6 +124,34 @@ function Home() {
             <FontAwesomeIcon icon={faPeopleCarryBox} className="gallery-icon" />
             <p>Logistics</p>
           </div>
+        </div>
+
+        <div className="update-section">
+          <div className="update-tabs">
+            <button className={`update-tab ${activeTab === 'news' ? 'active' : ''}`} onClick={() => setActiveTab('news')}>News & Updates</button>
+            <button className={`update-tab ${activeTab === 'tenders' ? 'active' : ''}`} onClick={() => setActiveTab('tenders')}>Tenders</button>
+            <button className={`update-tab ${activeTab === 'notifications' ? 'active' : ''}`} onClick={() => setActiveTab('notifications')}>Notifications</button>
+            <button className={`update-tab ${activeTab === 'recruitment' ? 'active' : ''}`} onClick={() => setActiveTab('recruitment')}>Recruitment</button>
+          </div>
+
+          <div className="update-list">
+            {updates[activeTab].map((update, index) => (
+              <div key={index} className="update-item">
+                <span className="update-date">{update.date}</span> <span className="new-tag">New</span>
+                <a href="#" className="update-link">
+                  <img src="assets/pdf-icon.png" alt="PDF Icon" className="pdf-icon" /> {update.title}
+                </a>
+                <span className="file-size">{update.size}</span>
+              </div>
+            ))}
+          </div>
+          
+        </div>
+        <div id="about-us" className="about-us-section">
+          <h2>About Us</h2>
+          <p>
+            For more than 150 years, the Department of Posts (DoP) has been the backbone of the country’s communication and has played a crucial role in the country’s social economic development. It touches the lives of Indian citizens in many ways: delivering mails, accepting deposits under Small Savings Schemes, providing life insurance cover under Postal Life Insurance (PLI) and Rural Postal Life Insurance (RPLI) and providing retail services like bill collection, sale of forms, etc. The DoP also acts as an agent for Government of India in discharging other services for citizens such as Mahatma Gandhi National Rural Employment Guarantee Scheme (MGNREGS) wage disbursement and old age pension payments. With more than 1,55,000 post offices, the DoP has the most widely distributed postal network in the world.
+          </p>
         </div>
       </div>
     </div>

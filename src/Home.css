@@ -1,4 +1,5 @@
 /* Home.css */
+
 .home-container {
   display: flex;
   flex-direction: row;
@@ -9,7 +10,7 @@
 
 .sidebar {
   width: 20%;
-  background: #f0f0f0;
+  background: #ca252b;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   height: calc(100vh - 40px);
@@ -19,7 +20,7 @@
 .sidebar-title {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  color: #333;
+  color: #000000;
 }
 
 .sidebar-link {
@@ -28,14 +29,14 @@
   margin-bottom: 10px;
   background: #ffffff;
   border-radius: 5px;
-  color: #333;
+  color: #000000;
   text-decoration: none;
   font-size: 1rem;
   transition: background 0.3s, color 0.3s;
 }
 
 .sidebar-link:hover {
-  background: #e0e0e0;
+  background:  #f6ac66;
   color: #000;
 }
 
@@ -60,31 +61,39 @@ h2 {
   margin-bottom: 6px;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; /* Increased gap between items */
-  justify-content: center; /* Center align the items */
+  gap: 20px;
+  justify-content: center;
 }
 
 .gallery-item {
   width: calc(33% - 20px); /* Adjust width to fit more items on a row */
-  
+  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border-radius: 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px; /* Increased padding for larger items */
-  background: #ffffff;
+  background:  #f3bd8b;
+  border: 2px solid transparent; /* Initial border */
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery-icon {
   font-size: 4rem; /* Increased icon size */
-  color: #333;
+  color: #ca252b;
   margin-bottom: 10px; /* Increased space between icon and text */
 }
 
 .gallery-item p {
   font-size: 1.25rem; /* Larger text size */
-  color: #333;
+  color: #000000;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05); /* Zoom in */
+  border-color:  #ca252b; /* Change border color to orange */
+  box-shadow: 0 4px 20px rgba(255, 165, 0, 0.8); /* Add orange glow */
 }
 
 @media (max-width: 768px) {
@@ -100,5 +109,132 @@ h2 {
 
   .gallery-item {
     width: calc(100% - 10px); /* Full width for smaller screens */
+  }
+}
+
+/* Update Section CSS */
+.update-section {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.update-tabs {
+  display: flex;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.update-tab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  background: #f1f1f1;
+  font-size: 1rem;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.update-tab.active {
+  background-color: #ca252b;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.update-list {
+  max-height: 400px; /* Adjust the height to fit your needs */
+  overflow-y: auto;
+}
+
+.update-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.update-date {
+  font-weight: bold;
+}
+
+.new-tag {
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+
+.update-link {
+  flex: 1;
+  margin: 0 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.pdf-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.file-size {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* src/AboutUs.css */
+/* src/Home.css */
+
+.about-us-section {
+  background-color: #f4f4f4;
+  padding: 40px 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  max-width: 1000px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-us-section h2 {
+  font-size: 28px;
+  color: #ff0000;
+  margin-bottom: 20px;
+  font-family: 'Honk', sans-serif;
+  text-align: center;
+}
+
+.about-us-section p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 20px;
+  font-family: 'Nabla', sans-serif;
+}
+
+.about-us-section p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .about-us-section {
+    padding: 20px 10px;
+    margin: 10px auto;
+  }
+
+  .about-us-section h2 {
+    font-size: 24px;
+  }
+
+  .about-us-section p {
+    font-size: 16px;
   }
 }
