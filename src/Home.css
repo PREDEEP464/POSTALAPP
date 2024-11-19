@@ -12,32 +12,41 @@
   width: 20%;
   background: #ca252b;
   padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
   height: calc(100vh - 40px);
+  border-radius: 12px;
   overflow-y: auto;
 }
 
 .sidebar-title {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  color: #000000;
+  font-size: 1.75rem; /* Slightly larger font size */
+  font-weight: bold;
+  color: #000000; /* White text for contrast */
+  text-align: center; /* Center align the title */
+  margin-bottom: 1rem; /* Space below the title */
+  text-transform: uppercase; /* Capitalize the title */
+  letter-spacing: 1px; /* Slight spacing for a modern look */
 }
 
 .sidebar-link {
   display: block;
-  padding: 10px 15px;
+  padding: 12px 20px; /* Comfortable padding */
   margin-bottom: 10px;
-  background: #ffffff;
-  border-radius: 5px;
-  color: #000000;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: background 0.3s, color 0.3s;
+  background: #ffffff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  color: #000000; /* Black text */
+  text-decoration: none; /* Remove underline */
+  font-size: 1rem; /* Base font size */
+  font-weight: 500; /* Slightly bold */
+  transition: all 0.3s ease; /* Smooth hover transition */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .sidebar-link:hover {
-  background:  #f6ac66;
-  color: #000;
+  background: #e6550c; /* Light orange background on hover */
+  color: #ffffff; /* White text on hover */
+  transform: translateX(5px); /* Subtle move to the right */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
 }
 
 .main-content {
@@ -102,9 +111,7 @@ h2 {
   }
 
   .sidebar {
-    width: 100%;
-    margin-bottom: 20px;
-    height: auto;
+    display: none; /* Hide the sidebar on mobile */
   }
 
   .gallery-item {
@@ -238,3 +245,5 @@ h2 {
     font-size: 16px;
   }
 }
+
+

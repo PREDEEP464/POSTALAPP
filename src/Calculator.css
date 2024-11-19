@@ -1,0 +1,195 @@
+/* General Container */
+.calculate-postage {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Header */
+.calculate-postage h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #333333;
+  text-align: center; /* Center the header */
+}
+
+/* Form Elements */
+.calculate-postage form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Section Titles */
+.calculate-postage h4 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333333;
+}
+
+/* Type of Service Section */
+.calculate-postage .service-type {
+  text-align: center; /* Center the entire section */
+}
+
+.calculate-postage .service-type label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.calculate-postage .service-type div {
+  display: flex;
+  justify-content: center; /* Center the options */
+  gap: 1rem; /* Add space between options */
+  margin-top: 0.5rem;
+}
+
+.calculate-postage .service-type input {
+  margin-right: 0.25rem; /* Add space between input and label */
+}
+
+/* Input Fields */
+.calculate-postage input,
+.calculate-postage select {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  background-color: #f7f7f7;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input Focus State */
+.calculate-postage input:focus,
+.calculate-postage select:focus {
+  border-color: #be221a;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px rgba(190, 34, 26, 0.3);
+  outline: none;
+}
+
+/* Dimensions Section */
+.calculate-postage .dimensions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.calculate-postage .dimensions input {
+  flex: 1 1 calc(50% - 1rem); /* Make inputs responsive */
+}
+
+/* Button */
+.calculate-postage .submit-btn {
+  background-color: #be221a;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  text-align: center;
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button Hover Effect */
+.calculate-postage .submit-btn:hover {
+  background-color: #ff1c02;
+  transform: translateY(-3px);
+}
+
+/* Error Message */
+.calculate-postage .error {
+  color: red;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center; /* Center error messages */
+}
+
+/* Available Services Table */
+.calculate-postage .available-services {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  background-color: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calculate-postage table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calculate-postage th,
+.calculate-postage td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.calculate-postage th {
+  background-color: #f7f7f7;
+  font-weight: bold;
+}
+
+.calculate-postage td {
+  background-color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .calculate-postage {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .calculate-postage form {
+    gap: 1rem;
+  }
+
+  .calculate-postage input,
+  .calculate-postage select {
+    padding: 0.6rem;
+  }
+
+  .calculate-postage .submit-btn {
+    padding: 0.6rem 1rem;
+  }
+
+  .calculate-postage .available-services {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .calculate-postage h2 {
+    font-size: 1.5rem;
+  }
+
+  .calculate-postage form {
+    gap: 0.8rem;
+  }
+
+  .calculate-postage input,
+  .calculate-postage select {
+    padding: 0.5rem;
+  }
+
+  .calculate-postage .submit-btn {
+    padding: 0.6rem 1rem;
+  }
+
+  .calculate-postage .dimensions input {
+    flex: 1 1 100%; /* Make inputs stack in small screens */
+  }
+}

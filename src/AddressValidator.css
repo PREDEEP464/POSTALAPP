@@ -1,0 +1,209 @@
+/* Address Validator Container */
+.address-validator {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px; /* Rounded corners for a modern look */
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Header */
+.address-validator h1 {
+    font-size: 1.5rem; /* Slightly bigger font size */
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333333; /* Darker text for better contrast */
+}
+
+/* Form Elements */
+.address-validator form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Slightly more space between form elements */
+    width: 100%;
+}
+
+/* Input Fields */
+.address-validator input {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* More rounded corners */
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: #f7f7f7; /* Light background for input fields */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+/* Input Focus State */
+.address-validator input:focus {
+    border-color: #be221a; /* Red border on focus */
+    background-color: #ffffff; /* White background on focus */
+    box-shadow: 0 0 8px rgba(190, 34, 26, 0.3); /* Subtle focus shadow */
+    outline: none; /* Remove default outline */
+}
+
+/* Labels */
+.address-validator label {
+    font-size: 1.1rem;
+    font-weight: medium;
+    margin-bottom: 0.5rem;
+    color: #555555; /* Softer label color */
+}
+
+/* Button */
+.address-validator button {
+    background-color: #be221a;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px; /* Rounded button corners */
+    margin-top: 1.5rem;
+    text-align: center;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button Hover Effect */
+.address-validator button:hover {
+    background-color: #ff1c02; /* Bright orange on hover */
+    transform: translateY(-3px); /* Slight lift on hover */
+}
+
+/* Error Message */
+.address-validator .text-red-500 {
+    color: red;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Validation Result Container */
+.address-validator .mt-4.p-4.border.rounded.bg-gray-50 {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border: 1px solid #ff0000;
+    background-color: #fafafa94;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Font Weight for Validation Result */
+.address-validator .font-bold {
+    font-weight: 600;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .address-validator {
+        padding: 20px; /* Slightly less padding */
+        max-width: 100%; /* Full width on smaller screens */
+    }
+
+    .address-validator form {
+        gap: 1rem; /* Adjust gap for smaller screens */
+    }
+
+    .address-validator input {
+        padding: 0.6rem; /* Slightly smaller padding */
+    }
+
+    .address-validator button {
+        padding: 0.6rem; /* Adjust button padding */
+    }
+
+    .address-validator .mt-4.p-4.border.rounded.bg-gray-50 {
+        margin-top: 1rem; /* Adjust margin */
+        padding: 1rem; /* Adjust padding */
+    }
+}
+
+/* Mobile Design (extra small screens) */
+@media (max-width: 480px) {
+    .address-validator h1 {
+        font-size: 1.25rem; /* Slightly smaller font size for mobile */
+    }
+
+    .address-validator form {
+        gap: 0.8rem; /* Slightly tighter form spacing */
+    }
+
+    .address-validator input {
+        padding: 0.5rem; /* Reduce padding on small screens */
+    }
+
+    .address-validator button {
+        padding: 0.6rem 1rem; /* Adjust button padding */
+    }
+}
+
+.calculate-postage {
+    width: 70%;
+    margin: auto;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .service-type,
+  .address-section,
+  .article-details {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  h4 {
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  input,
+  select {
+    width: calc(100% - 20px);
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .dimensions input {
+    width: calc(25% - 10px);
+    margin-right: 10px;
+  }
+  
+  .dimensions input:last-child {
+    margin-right: 0;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .submit-btn:hover {
+    background-color: #e03e00;
+  }
+  
