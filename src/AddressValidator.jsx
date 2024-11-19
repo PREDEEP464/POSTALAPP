@@ -135,7 +135,7 @@ const AddressValidator = () => {
             <h2 className="text-xl font-bold mb-4">Address Validator</h2>
             <form className="space-y-4">
                 <div>
-                    <label className="block font-medium mb-1">House Number:</label>
+                    <label className="block font-medium mb-1">House Number*</label>
                     <input
                         type="text"
                         name="houseNumber"
@@ -147,7 +147,7 @@ const AddressValidator = () => {
                 </div>
 
                 <div>
-                    <label className="block font-medium mb-1">Street:</label>
+                    <label className="block font-medium mb-1">Street*</label>
                     <input
                         type="text"
                         name="street"
@@ -159,7 +159,7 @@ const AddressValidator = () => {
                 </div>
 
                 <div>
-                    <label className="block font-medium mb-1">Neighbourhood:</label>
+                    <label className="block font-medium mb-1">Neighbourhood</label>
                     <input
                         type="text"
                         name="neighbourhood"
@@ -171,7 +171,7 @@ const AddressValidator = () => {
                 </div>
 
                 <div>
-                    <label className="block font-medium mb-1">Borough:</label>
+                    <label className="block font-medium mb-1">Area*</label>
                     <input
                         type="text"
                         name="borough"
@@ -183,7 +183,7 @@ const AddressValidator = () => {
                 </div>
 
                 <div>
-                    <label className="block font-medium mb-1">Locality:</label>
+                    <label className="block font-medium mb-1">District/City*</label>
                     <input
                         type="text"
                         name="locality"
@@ -195,7 +195,7 @@ const AddressValidator = () => {
                 </div>
 
                 <div>
-                    <label className="block font-medium mb-1">Region (State):</label>
+                    <label className="block font-medium mb-1">State*</label>
                     <input
                         type="text"
                         name="region"
@@ -207,7 +207,7 @@ const AddressValidator = () => {
                 </div>
 
                 <div>
-                    <label className="block font-medium mb-1">Postal Code:</label>
+                    <label className="block font-medium mb-1">Postal Code*</label>
                     <input
                         type="text"
                         name="postalCode"
@@ -219,7 +219,7 @@ const AddressValidator = () => {
                 </div>
 
                 <div>
-                    <label className="block font-medium mb-1">Country:</label>
+                    <label className="block font-medium mb-1">Country*</label>
                     <input
                         type="text"
                         name="country"
