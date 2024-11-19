@@ -1,8 +1,19 @@
 .map-container {
   display: flex;
-  height: 100vh;
+  width: 100vw; /* Full screen width */
+  height: 100vh; /* Full screen height */
+  position: relative;
 }
 
+#central-map {
+  width: 100%; /* Takes full width of parent */
+  height: 100%; /* Takes full height of parent */
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
 .map {
   flex: 7; /* 70% of the width */
 }

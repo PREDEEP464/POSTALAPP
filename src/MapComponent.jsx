@@ -46,22 +46,6 @@ function MapComponent() {
       .then((data) => {
         setPostOffices(data);
 
-        // data.forEach((postOffice) => {
-        //   const customMarker = document.createElement("div");
-        //   customMarker.classList.add("customMarkerClass");
-        //   customMarker.style.backgroundImage = "url('/src/assets/postoffice-rm-bg.png')";
-        //   customMarker.style.width = "40px";
-        //   customMarker.style.height = "30px";
-        //   customMarker.style.backgroundSize = "cover";
-
-        //   const marker = new Marker({ element: customMarker, offset: [0, -15] })
-        //     .setLngLat([postOffice.longitude, postOffice.latitude])
-        //     .setPopup(
-        //       new maplibregl.Popup({ offset: 25 })
-        //         .setHTML(`<h3>${postOffice.officename}</h3><p>Pincode: ${postOffice.pincode}</p>`)
-        //     )
-        //     .addTo(mapInstance);
-        // });
         data.forEach((postOffice) => {
           const customMarker = document.createElement("div");
           customMarker.classList.add("customMarkerClass");
@@ -286,7 +270,7 @@ function MapComponent() {
   };
 
   return (
-    <div style={{ width: "100vw", height: "100vh", overflow: "hidden" }}>
+    <div style={{ width: "90vw", height: "100vh", overflow: "hidden" }}>
       <input
         type="text"
         placeholder="Search for places"
@@ -339,13 +323,14 @@ function MapComponent() {
         id="central-map"
         style={{
           width: "100%",
-          height: "100%",
-          position: "relative",
-          top: 0,
+          height: "107%",
+          position: "absolute",
+          top: 68,
           left: 0,
         }}
         onClick={handleMapClick}
       />
+
     </div>
   );
 }
