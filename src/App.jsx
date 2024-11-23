@@ -24,6 +24,7 @@ function App() {
             <Link to="/">Home</Link>
             <Link to="/pincode">Pincode</Link>
             <Link to="/map">Map</Link>
+            <Link to="/address-validator">Address Validator</Link>
           </nav>
 
           {/* Mobile Hamburger Icon */}
