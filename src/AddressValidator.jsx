@@ -12,6 +12,7 @@ const AddressValidator = () => {
         region: '',
         postalCode: '',
         country: 'India', // Default to India
+        landmark: '', // Field for landmark
     });
     const [validationResult, setValidationResult] = useState(null);
     const [error, setError] = useState(null);
@@ -27,19 +28,13 @@ const AddressValidator = () => {
         }));
     };
 
-    const handleSearchChange = async (e) => {
+    const handleLandmarkSearchChange = async (e) => {
         const { name, value } = e.target;
 
-        // Update the field value in the form
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
         }));
-
-        // Skip API call for the 'neighbourhood' field
-        if (name === 'neighbourhood') {
-            return;
-        }
 
         if (!value) {
             setAutocompleteResults([]);
@@ -57,9 +52,9 @@ const AddressValidator = () => {
     };
 
     const handleValidate = async () => {
-        const { houseNumber, street, neighbourhood, borough, locality, region, postalCode, country } = formData;
+        const { houseNumber, street, neighbourhood, borough, locality, region, postalCode, country, landmark } =
+            formData;
 
-        // Ensure required fields are filled
         if (!houseNumber || !street || !locality || !region || !postalCode) {
             setError('Please fill out all mandatory fields.');
             return;
@@ -68,8 +63,7 @@ const AddressValidator = () => {
         setError(null);
         setValidationResult(null);
 
-        // Construct the address parameter
-        const address = `${houseNumber}, ${street}, ${neighbourhood}, ${borough}, ${locality}, ${region}, ${postalCode}, ${country}`;
+        const address = `${houseNumber}, ${street}, ${landmark}, ${neighbourhood}, ${borough}, ${locality}, ${region}, ${postalCode}, ${country}`;
 
         try {
             const response = await axios.get(`https://api.olamaps.io/places/v1/addressvalidation`, {
@@ -78,9 +72,11 @@ const AddressValidator = () => {
 
             const { data } = response;
             if (data?.result?.validated === true) {
-                setValidationResult(data.result);
+                setValidationResult({
+                    validated_address: `${data.result.validated_address}, Landmark: ${landmark}`,
+                    corrected_postal_code: data.result.corrected_postal_code || postalCode,
+                });
             } else {
-                // Address validation failed, perform a search using neighbourhood and borough
                 await handleCorrectAddressUsingNeighbourhoodAndBorough(neighbourhood, borough);
             }
         } catch (err) {
@@ -89,22 +85,20 @@ const AddressValidator = () => {
     };
 
     const handleCorrectAddressUsingNeighbourhoodAndBorough = async (neighbourhood, borough) => {
-        // Search with the neighbourhood and borough to get the correct postal code
         try {
             const response = await axios.get('https://api.olamaps.io/places/v1/autocomplete', {
                 params: { input: `${neighbourhood}, ${borough}`, api_key: apiKey },
             });
 
             if (response.data.predictions.length > 0) {
-                // Get the first result and update the postal code
                 const correctedAddress = response.data.predictions[0].structured_formatting.main_text;
-                setFormData((prevData) => ({
-                    ...prevData,
-                    postalCode: response.data.predictions[0].postalCode || prevData.postalCode,
-                }));
                 const correctedPostalCode = response.data.predictions[0].terms.find((term) =>
                     /^[0-9]{6}$/.test(term.value)
                 )?.value;
+                setFormData((prevData) => ({
+                    ...prevData,
+                    postalCode: correctedPostalCode || prevData.postalCode,
+                }));
                 setValidationResult({
                     validated_address: correctedAddress,
                     corrected_postal_code: correctedPostalCode,
@@ -119,14 +113,23 @@ const AddressValidator = () => {
     };
 
     const handleAutocompleteSelect = (selectedAddress) => {
-        // Populate the form with the selected autocomplete suggestion
-        setFormData({
-            ...formData,
-            neighbourhood: selectedAddress.structured_formatting.main_text, // Example field for neighbourhood
-            postalCode: selectedAddress.postalCode || formData.postalCode, // If postal code is suggested, update it
-        });
+        const selectedLandmark = selectedAddress.structured_formatting.main_text;
+        const selectedPostalCode = selectedAddress.terms.find((term) => /^[0-9]{6}$/.test(term.value))?.value;
 
-        // Optionally close the autocomplete dropdown
+        setFormData((prevData) => ({
+            ...prevData,
+            landmark: selectedLandmark,
+            postalCode: selectedPostalCode || prevData.postalCode,
+        }));
+
+        setValidationResult((prevResult) => ({
+            ...prevResult,
+            validated_address: prevResult?.validated_address
+                ? `${prevResult.validated_address}, Landmark: ${selectedLandmark}`
+                : selectedLandmark,
+            corrected_postal_code: selectedPostalCode || prevResult?.corrected_postal_code || formData.postalCode,
+        }));
+
         setAutocompleteResults([]);
     };
 
@@ -164,7 +167,7 @@ const AddressValidator = () => {
                         type="text"
                         name="neighbourhood"
                         value={formData.neighbourhood}
-                        onChange={handleSearchChange}
+                        onChange={handleChange}
                         className="p-2 border rounded w-full"
                         placeholder="Enter neighbourhood"
                     />
@@ -230,6 +233,31 @@ const AddressValidator = () => {
                         readOnly
                     />
                 </div>
+
+                <div>
+                    <label className="block font-medium mb-1">Landmark</label>
+                    <input
+                        type="text"
+                        name="landmark"
+                        value={formData.landmark}
+                        onChange={handleLandmarkSearchChange}
+                        className="p-2 border rounded w-full"
+                        placeholder="Enter landmark"
+                    />
+                    {autocompleteResults.length > 0 && (
+                        <ul className="landmark-dropdown">
+                            {autocompleteResults.map((result, index) => (
+                                <li
+                                    key={index}
+                                    className="cursor-pointer p-2 hover:bg-gray-200"
+                                    onClick={() => handleAutocompleteSelect(result)}
+                                >
+                                    {result.structured_formatting.main_text}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
             </form>
 
             <button
@@ -242,12 +270,12 @@ const AddressValidator = () => {
             {error && <div className="text-red-500 mt-4">{error}</div>}
 
             {validationResult && (
-            <div className="mt-4 p-4 border rounded bg-gray-50">
-                <h3 className="font-bold">Validation Result</h3>
-                <p><strong>Validated Address:</strong> {validationResult.validated_address}</p>
-                <p><strong>Corrected Postal Code:</strong> {validationResult.corrected_postal_code}</p>
-            </div>
-        )}
+                <div className="mt-4 p-4 border rounded bg-gray-50">
+                    <h3 className="font-bold">Validation Result</h3>
+                    <p><strong>Validated Address:</strong> {validationResult.validated_address}</p>
+                    <p><strong>Corrected Postal Code:</strong> {validationResult.corrected_postal_code}</p>
+                </div>
+            )}
         </div>
     );
 };
