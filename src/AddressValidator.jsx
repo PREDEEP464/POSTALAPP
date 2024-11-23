@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './addressvalidator.css'; // Import the CSS file
+import './addressvalidator.css'; 
 
 const AddressValidator = () => {
     const [formData, setFormData] = useState({
@@ -11,8 +11,8 @@ const AddressValidator = () => {
         borough: '',
         region: '',
         postalCode: '',
-        country: 'India', // Default to India
-        landmark: '', // Field for landmark
+        country: 'India', 
+        landmark: '', 
     });
     const [validationResult, setValidationResult] = useState(null);
     const [error, setError] = useState(null);
